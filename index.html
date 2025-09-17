@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025년 판교 십독 - 마크의 독서모임</title>
+    <meta name="description" content="판교에서 활동하는 십독 독서모임입니다. 방장 마크와 함께 매월 선정된 도서로 깊이 있는 독서 경험을 나누어보세요.">
+    <meta name="keywords" content="판교 십독, 독서모임, 마크, 도서 추천, 독서, 책, 성장, 교양, 인문학">
+    <meta name="author" content="판교 십독">
+    <meta property="og:title" content="2025년 판교 십독 - 마크의 독서모임">
+    <meta property="og:description" content="판교에서 활동하는 십독 독서모임입니다. 방장 마크와 함께 매월 선정된 도서로 깊이 있는 독서 경험을 나누어보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://executive-services.com">
+    <link rel="canonical" href="https://executive-services.com">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <meta name="robots" content="index, follow">
+    <link rel="robots" href="/robots.txt">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Apple SD Gothic Neo', serif;
+            background: #0a0a0a;
+            color: #f8f9fa;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #d4af37;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-item a {
+            color: #f8f9fa;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+            position: relative;
+        }
+
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item a:hover::after,
+        .nav-item a.active::after {
+            width: 100%;
+        }
+
+        .nav-item a:hover,
+        .nav-item a.active {
+            color: #d4af37;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 1) 70%);
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg,
+                rgba(212, 175, 55, 0.05) 0%,
+                rgba(0, 0, 0, 0.8) 30%,
+                rgba(0, 0, 0, 1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #d4af37, #f4e87c, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            color: #b8b8b8;
+            margin-bottom: 50px;
+            line-height: 1.8;
+            font-weight: 300;
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+        }
+
+        .search-luxury {
+            position: relative;
+            margin-bottom: 80px;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 600px;
+            padding: 25px 30px;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 0;
+            color: #f8f9fa;
+            outline: none;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-input:focus {
+            border-color: #d4af37;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .categories-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+            margin-bottom: 100px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .category-btn {
+            padding: 20px 40px;
+            background: transparent;
+            border: none;
+            color: #b8b8b8;
+            font-size: 1rem;
+            font-weight: 300;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-right: 1px solid rgba(212, 175, 55, 0.2);
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-btn:last-child {
+            border-right: none;
+        }
+
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .category-btn:hover::before {
+            left: 100%;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 120px;
+            padding: 0 20px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.03) 0%,
+                rgba(255, 255, 255, 0.01) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 40px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.06) 0%,
+                rgba(255, 255, 255, 0.02) 100%);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-category {
+            font-size: 0.8rem;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+        }
+
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #f8f9fa;
+            line-height: 1.3;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            color: #b8b8b8;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+            font-weight: 300;
+        }
+
+        .service-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .service-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #d4af37;
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+        }
+
+        .service-arrow {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #d4af37;
+            font-size: 1.2rem;
+        }
+
+        .service-card:hover .service-arrow {
+            background: #d4af37;
+            color: #000;
+            transform: rotate(45deg);
+        }
+
+        .footer-section {
+            text-align: center;
+            padding: 80px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            background: linear-gradient(135deg,
+                rgba(212, 175, 55, 0.03) 0%,
+                rgba(0, 0, 0, 1) 100%);
+        }
+
+        .footer-section h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+
+        .footer-section p {
+            font-size: 1.3rem;
+            color: #b8b8b8;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #b8b8b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+        }
+
+        .footer-links a:hover {
+            color: #d4af37;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 20px;
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100px;
+            background: rgba(212, 175, 55, 0.2);
+            z-index: 1000;
+        }
+
+        .scroll-progress {
+            width: 100%;
+            background: #d4af37;
+            height: 0%;
+            transition: height 0.1s ease;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 50px;
+                transition: left 0.3s ease;
+                gap: 30px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 0;
+            }
+
+            .service-card {
+                padding: 30px 25px;
+            }
+
+            .categories-nav {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .category-btn {
+                border-right: none;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+                padding: 15px 30px;
+            }
+
+            .category-btn:last-child {
+                border-bottom: none;
+            }
+
+            .search-input {
+                padding: 20px 25px;
+                font-size: 1.1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-card {
+                padding: 25px 20px;
+            }
+
+            .service-title {
+                font-size: 1.5rem;
+            }
+
+            .service-description {
+                font-size: 0.95rem;
+            }
+
+            .category-btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .grain {
+                background-size: 50% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <a href="#" class="logo">판교 십독</a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="#" class="active">홈</a></li>
+                <li class="nav-item"><a href="#about">소개</a></li>
+                <li class="nav-item"><a href="#books">도서목록</a></li>
+                <li class="nav-item"><a href="#reviews">서평</a></li>
+                <li class="nav-item"><a href="#contact">문의</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>2025년 판교 십독</h1>
+                <p>방장 마크와 함께하는 판교 지역 독서모임입니다. 2023년부터 현재까지 함께 읽어온 좋은 책들을 소개하며, 매월 선정된 도서로 깊이 있는 독서 경험을 나누고 있습니다.</p>
+
+                <div class="search-luxury">
+                    <input type="text" class="search-input" placeholder="도서 검색" id="searchField">
+                </div>
+            </div>
+        </section>
+
+        <nav class="categories-nav" id="books">
+            <button class="category-btn active" data-category="all">전체</button>
+            <button class="category-btn" data-category="2025">2025년</button>
+            <button class="category-btn" data-category="2024">2024년</button>
+            <button class="category-btn" data-category="2023">2023년</button>
+        </nav>
+
+        <section class="services-grid" id="booksContainer">
+            <!-- Books will be generated by JavaScript -->
+        </section>
+
+        <section class="footer-section">
+            <h2>37권의 도서</h2>
+            <p>방장 마크와 함께 2023년부터 현재까지 읽어온 양서들로 더 깊이 있는 사고와 성장의 기회를 경험해보세요</p>
+
+            <div class="footer-links">
+                <a href="privacy-policy.html">개인정보처리방침</a>
+                <a href="terms-of-service.html">이용약관</a>
+                <a href="#about">판교 십독 소개</a>
+                <a href="#contact">모임 문의</a>
+                <a href="#reviews">독서 후기</a>
+            </div>
+
+            <div class="copyright">
+                © 2025 판교 십독. 방장: 마크
+            </div>
+        </section>
+    </div>
+
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <script>
+        // 독서모임 도서 데이터
+        const books = [
+            // 2025년
+            { title: "데일카네기 인간관계론", month: "9월", year: "2025", category: "자기계발", description: "인간관계의 기본 원칙과 소통의 기술을 배우는 고전적 명저", rating: "4.7" },
+            { title: "스토너", month: "8월", year: "2025", category: "인문학", description: "평범한 한 남자의 일생을 통해 삶의 본질을 깊이 있게 성찰하는 작품", rating: "4.6" },
+            { title: "나의 무섭고 애처로운 환자들", month: "7월", year: "2025", category: "인문학", description: "정신과 의사가 경험한 인간의 마음과 치유에 대한 깊이 있는 통찰", rating: "4.5" },
+            { title: "달과 6펜스", month: "6월", year: "2025", category: "인문학", description: "예술가의 삶과 열정, 그리고 사회적 기대 사이의 갈등을 그린 고전", rating: "4.8" },
+            { title: "내가 누군지도 모른 채 마흔이 되었다.", month: "5월", year: "2025", category: "자기계발", description: "중년의 정체성 위기와 자아 발견에 대한 진솔한 이야기", rating: "4.4" },
+            { title: "마음사전 - 김소연", month: "4월", year: "2025", category: "인문학", description: "일상의 감정들을 섬세하고 아름답게 표현한 시집", rating: "4.6" },
+            { title: "맥베스", month: "3월", year: "2025", category: "인문학", description: "셰익스피어의 대표작으로 권력욕과 야망의 파괴적 힘을 그린 비극", rating: "4.7" },
+            { title: "무의식은 나를 어떻게 설계하는가", month: "2월", year: "2025", category: "자기계발", description: "무의식의 힘과 인간 행동의 숨겨진 메커니즘을 과학적으로 탐구", rating: "4.5" },
+            { title: "싯다르타", month: "1월", year: "2025", category: "인문학", description: "헤르만 헤세의 철학적 소설로 자아 발견과 깨달음의 여정을 그린 작품", rating: "4.8" },
+
+            // 2024년
+            { title: "소년이 온다", month: "12월", year: "2024", category: "인문학", description: "5·18 광주민주화운동을 배경으로 한 한강의 대표작", rating: "4.9" },
+            { title: "작별하지 않는다", month: "11월", year: "2024", category: "인문학", description: "죽음과 이별, 그리고 기억에 대한 깊이 있는 성찰", rating: "4.6" },
+            { title: "방구석미술관", month: "10월", year: "2024", category: "인문학", description: "쉽고 재미있게 접근하는 미술사와 작품 이야기", rating: "4.4" },
+            { title: "코스모스", month: "9월", year: "2024", category: "인문학", description: "칼 세이건의 대표작으로 우주와 과학에 대한 경이로운 탐구", rating: "4.8" },
+            { title: "후회의재발견", month: "8월", year: "2024", category: "자기계발", description: "후회를 통해 배우고 성장하는 방법에 대한 심리학적 접근", rating: "4.3" },
+            { title: "모순", month: "7월", year: "2024", category: "인문학", description: "양귀자의 대표작으로 현대 사회의 모순과 갈등을 그린 소설", rating: "4.5" },
+            { title: "불변의 법칙", month: "6월", year: "2024", category: "자기계발", description: "성공과 성장을 위한 변하지 않는 원칙들", rating: "4.4" },
+            { title: "인간실격", month: "5월", year: "2024", category: "인문학", description: "다자이 오사무의 대표작으로 인간 존재의 근본적 고독을 그린 작품", rating: "4.7" },
+            { title: "도파민네이션", month: "4월", year: "2024", category: "자기계발", description: "현대 사회의 중독과 도파민 시스템에 대한 과학적 분석", rating: "4.5" },
+            { title: "데미안", month: "3월", year: "2024", category: "인문학", description: "헤르만 헤세의 성장소설로 자아 발견과 정신적 성숙을 그린 작품", rating: "4.8" },
+            { title: "원칙", month: "2월", year: "2024", category: "자기계발", description: "레이 달리오의 인생과 경영 원칙에 대한 통찰", rating: "4.6" },
+            { title: "마흔에 읽는 쇼펜하우어", month: "1월", year: "2024", category: "인문학", description: "중년의 관점에서 바라본 쇼펜하우어 철학의 실용적 지혜", rating: "4.5" },
+
+            // 2023년
+            { title: "질서 너머", month: "12월", year: "2023", category: "인문학", description: "기존 질서를 넘어선 새로운 사고와 가치관에 대한 탐구", rating: "4.4" },
+            { title: "죽음이란 무엇인가", month: "11월", year: "2023", category: "인문학", description: "죽음에 대한 철학적 성찰과 삶의 의미에 대한 깊이 있는 사유", rating: "4.7" },
+            { title: "욕망의진화", month: "10월", year: "2023", category: "자기계발", description: "인간 욕망의 진화적 기원과 현대적 의미를 과학적으로 분석", rating: "4.3" },
+            { title: "패스", month: "9월", year: "2023", category: "자기계발", description: "목표 달성과 성공을 위한 전략적 접근법", rating: "4.2" },
+            { title: "참을 수 없는 존재의 가벼움", month: "8월", year: "2023", category: "인문학", description: "밀란 쿤데라의 대표작으로 존재의 무거움과 가벼움에 대한 철학적 소설", rating: "4.8" },
+            { title: "진화하는 언어", month: "7월", year: "2023", category: "인문학", description: "언어의 변화와 진화 과정을 통해 본 인간 문명의 발달", rating: "4.4" },
+            { title: "패스", month: "6월", year: "2023", category: "자기계발", description: "개인의 성장과 발전을 위한 실용적 가이드", rating: "4.2" },
+            { title: "인간본성불패의법칙", month: "5월", year: "2023", category: "자기계발", description: "변하지 않는 인간 본성을 이해하고 활용하는 방법", rating: "4.5" },
+            { title: "세이노의 가르침", month: "4월", year: "2023", category: "자기계발", description: "성공한 투자자 세이노의 인생과 투자에 대한 철학", rating: "4.6" },
+            { title: "시크릿", month: "3월", year: "2023", category: "자기계발", description: "끌어당김의 법칙과 긍정적 사고의 힘에 대한 이야기", rating: "4.1" },
+            { title: "원씽", month: "2월", year: "2023", category: "자기계발", description: "집중의 힘과 우선순위 설정의 중요성을 강조하는 자기계발서", rating: "4.4" },
+            { title: "부의원칙", month: "1월", year: "2023", category: "자기계발", description: "부를 축적하고 관리하는 기본 원칙과 전략", rating: "4.3" }
+        ];
+
+        function renderBooks(booksToRender = books) {
+            const container = document.getElementById('booksContainer');
+            container.innerHTML = '';
+
+            booksToRender.forEach(book => {
+                const bookCard = document.createElement('div');
+                bookCard.className = 'service-card';
+                bookCard.innerHTML = `
+                    <div class="service-category">${book.year}</div>
+                    <h3 class="service-title">${book.title}</h3>
+                    <p class="service-description">${book.description}</p>
+                    <div class="service-footer">
+                        <div class="service-rating">★ ${book.rating} | ${book.month}</div>
+                        <div class="service-arrow">📖</div>
+                    </div>
+                `;
+                container.appendChild(bookCard);
+            });
+        }
+
+        // Search functionality
+        document.getElementById('searchField').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredBooks = books.filter(book =>
+                book.title.toLowerCase().includes(searchTerm) ||
+                book.description.toLowerCase().includes(searchTerm) ||
+                book.category.toLowerCase().includes(searchTerm) ||
+                book.year.toLowerCase().includes(searchTerm)
+            );
+            renderBooks(filteredBooks);
+        });
+
+        // Category filter functionality
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const category = btn.dataset.category;
+                let filteredBooks;
+
+                if (category === 'all') {
+                    filteredBooks = books;
+                } else if (category === '2025' || category === '2024' || category === '2023') {
+                    filteredBooks = books.filter(book => book.year === category);
+                } else {
+                    filteredBooks = books.filter(book => book.category === category);
+                }
+
+                renderBooks(filteredBooks);
+            });
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobileToggle').addEventListener('click', () => {
+            const navMenu = document.getElementById('navMenu');
+            const mobileToggle = document.getElementById('mobileToggle');
+
+            navMenu.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.height = `${Math.min(scrollPercent, 100)}%`;
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initial render
+        renderBooks();
+    </script>
+</body>
+</html>
